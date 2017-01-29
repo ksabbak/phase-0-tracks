@@ -17,3 +17,6 @@
 * What is a merge conflict?
 	
 	A merge conflict is when something was changed in (at least) two different ways. For example, if the original read "Mary had a little lamb" and someone on CatBranch changed it to "Mary had a little kitten" and someone on DogBranch changed it to "Mary had a little puppy", it would be fine when the first branch merges, but when the second branch merges, it would present that as a conflict. 
+
+
+	It's important to pick the right account when merging a forked repo.
