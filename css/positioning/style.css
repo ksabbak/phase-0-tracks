@@ -1,0 +1,38 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+div.octostyle {
+	position: relative;
+}
+
+img {
+ 	display: block;
+ 	position: absolute;
+ }
+
+ #octopus {
+	/*position: fixed;*/
+	left: 0;
+	right: 0;
+	top: 50px;
+	margin: auto;
+	z-index: -100;
+}
+
+ #hat {
+	left: 10px;
+	right: 0;
+	top: 0;
+	margin: auto;
+	z-index: 100;
+}
+
+ #glasses {
+	left: 10px;
+	right: 0;
+	top: 150px;
+	margin: auto;
+	z-index: 0;
+ }
