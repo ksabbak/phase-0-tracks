@@ -1,0 +1,26 @@
+#contact-info {
+  font-size: .8em;
+}
+
+.job {
+    background-color: #e9e5dc;
+    border-radius: 25px;
+    padding: 1%;
+    margin-top: 15px;
+}
+
+.accomplishment {
+    font-size: .8em;
+}
+
+
+.job:hover {
+  background-color: #b9f;
+}
+
+/*did sibling element instead of child*/
+
+li.featured~li {
+  color: lightgray;
+}
+
