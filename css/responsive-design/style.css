@@ -10,10 +10,10 @@ h1 {
 }
 
 main {
-  width:79%;
+  width:70%;
   min-width: 360px;
-/*  display: inline-block;
-  vertical-align: top;*/
+  display: inline-block;
+  /*vertical-align: top;*/
   /*float: left;*/
   /*margin: 100px;*/
   /*overflow: auto;*/
@@ -38,12 +38,12 @@ cite {
 #external-links {
   float: right;
   padding-left: 20px;
-  width: 21%;
+  width: 20%;
   min-width: 175px;
   position: relative;
   /*overflow: auto;*/
-/*  display: inline-block;
-  vertical-align: top;*/
+  display: inline-block;
+  vertical-align: top;
 }
 
 /*.column {
