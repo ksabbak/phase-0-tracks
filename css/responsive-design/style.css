@@ -1,3 +1,24 @@
+body {
+  max-width: 960px;
+  /*overflow: auto;*/
+  /*font-size: 20px;*/
+}
+
+h1 {
+  border: solid black;
+  margin-bottom: 0;
+}
+
+main {
+  width:79%;
+  min-width: 360px;
+/*  display: inline-block;
+  vertical-align: top;*/
+  /*float: left;*/
+  /*margin: 100px;*/
+  /*overflow: auto;*/
+}
+
 blockquote {
   border-left: 5px solid blue;
   padding: 15px;
@@ -13,6 +34,36 @@ cite {
   list-style-type: none;
   padding-left: 0px;
 }
+
+#external-links {
+  float: right;
+  padding-left: 20px;
+  width: 21%;
+  min-width: 175px;
+  position: relative;
+  /*overflow: auto;*/
+/*  display: inline-block;
+  vertical-align: top;*/
+}
+
+/*.column {
+  display: inline-block;
+  vertical-align: top;
+  width: 500px;
+}*/
+
+#orange-flower {
+  padding: 0;
+}
+
+@media screen and (max-width: 500px) {
+  p, blockquote, figcaption, li {
+    font-size: 11px;
+  }
+  h1, h2, h3 {
+    font-size: 1em;
+  }
+
 
 /* you're welcome to edit the
 image, figure, and figcaption CSS if you'd like, 
@@ -30,3 +81,10 @@ figcaption {
   font-style: italic;
   text-align: right;
 }
+
+
+/*@media screen and (max-width: 500px) {
+  body {
+    background-color: hotpink;
+  }
+}*/
