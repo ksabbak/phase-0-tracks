@@ -1,3 +1,13 @@
+body {
+  max-width: 960px;
+}
+
+main {
+  max-width: 75%;
+  /*min-width: 360px;*/
+  display: inline-block;
+}
+
 blockquote {
   border-left: 5px solid blue;
   padding: 15px;
@@ -13,6 +23,21 @@ cite {
   list-style-type: none;
   padding-left: 0px;
 }
+
+#external-links {
+  /*float: right;*/
+  /*padding-left: 20px;*/
+  min-width: 160px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+img.altLink {
+  display: none;
+}
+
+
+
 
 /* you're welcome to edit the
 image, figure, and figcaption CSS if you'd like, 
@@ -30,3 +55,29 @@ figcaption {
   font-style: italic;
   text-align: right;
 }
+
+
+@media screen and (max-width: 500px) {
+  p, blockquote, figcaption, li {
+    font-size: 11px;
+  }
+  h1, h2, h3 {
+    font-size: 1em;
+  }
+ 
+ /*Later we will figure out how to make 
+ things look like bacon. For now this is a work in progress.*/
+
+/*  img.altLink{
+    display: contents;
+  }
+  span.exLink{
+    display: none;
+  }*/
+
+
+/*@media screen and (max-width: 500px) {
+  body {
+    background-color: hotpink;
+  }
+}*/
