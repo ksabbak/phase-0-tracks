@@ -1,22 +1,11 @@
 body {
   max-width: 960px;
-  /*overflow: auto;*/
-  /*font-size: 20px;*/
-}
-
-h1 {
-  border: solid black;
-  margin-bottom: 0;
 }
 
 main {
-  width:70%;
-  min-width: 360px;
+  max-width: 75%;
+  /*min-width: 360px;*/
   display: inline-block;
-  /*vertical-align: top;*/
-  /*float: left;*/
-  /*margin: 100px;*/
-  /*overflow: auto;*/
 }
 
 blockquote {
@@ -36,33 +25,18 @@ cite {
 }
 
 #external-links {
-  float: right;
-  padding-left: 20px;
-  width: 20%;
-  min-width: 175px;
-  position: relative;
-  /*overflow: auto;*/
+  /*float: right;*/
+  /*padding-left: 20px;*/
+  min-width: 160px;
   display: inline-block;
   vertical-align: top;
 }
 
-/*.column {
-  display: inline-block;
-  vertical-align: top;
-  width: 500px;
-}*/
-
-#orange-flower {
-  padding: 0;
+img.altLink {
+  display: none;
 }
 
-@media screen and (max-width: 500px) {
-  p, blockquote, figcaption, li {
-    font-size: 11px;
-  }
-  h1, h2, h3 {
-    font-size: 1em;
-  }
+
 
 
 /* you're welcome to edit the
@@ -81,6 +55,25 @@ figcaption {
   font-style: italic;
   text-align: right;
 }
+
+
+@media screen and (max-width: 500px) {
+  p, blockquote, figcaption, li {
+    font-size: 11px;
+  }
+  h1, h2, h3 {
+    font-size: 1em;
+  }
+ 
+ /*Later we will figure out how to make 
+ things look like bacon. For now this is a work in progress.*/
+
+/*  img.altLink{
+    display: contents;
+  }
+  span.exLink{
+    display: none;
+  }*/
 
 
 /*@media screen and (max-width: 500px) {
