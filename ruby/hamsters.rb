@@ -12,14 +12,23 @@ furcolor = gets.chomp
 
 puts "Is the Hamster good for adoption? (y/n)"
 
-adoption = gets.chomp
+if "yes yeah true".include? gets.chomp.downcase
+	adoption = true
+else
+	adoption = false
+end
 
 puts "How old is your Hamster?"
 
 input = gets.chomp
 age = nil
 unless input.length<1
-  age = input
+  age = input.to_i
 end
 
-puts("age#{age}")
+puts "name: #{name}"
+puts "age: #{age}"
+puts "volume: #{volume}"
+puts "furcolor: #{furcolor}"
+puts "adoption: #{adoption}"
+puts("age: #{age}")
