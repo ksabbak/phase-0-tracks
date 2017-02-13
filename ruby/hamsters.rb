@@ -26,9 +26,9 @@ unless input.length<1
   age = input.to_i
 end
 
-puts "name: #{name}"
-puts "age: #{age}"
-puts "volume: #{volume}"
-puts "furcolor: #{furcolor}"
-puts "adoption: #{adoption}"
-puts("age: #{age}")
+puts "Name: #{name}"
+puts "Age: #{age}"
+puts "Loudness level: #{volume}"
+puts "Fur color: #{furcolor}"
+puts "Is it adoptable?: #{adoption}"
+puts("Age: #{age}")
