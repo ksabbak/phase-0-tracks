@@ -1,3 +1,37 @@
+* {
+	box-sizing: border-box;
+}
+
+
 body {
-	background-color: pink;
+	width: 1000px;
+	font-family: sans-serif;
+	background-color: #ECF
+}
+
+.column-1, .column-2 {
+	background-color: #CAD;
+	/*display: inline-block;
+	vertical-align: top;*/
+	float: left;
+	width: 40%;
+	margin: 2%;
+	/*box-sizing: border-box;*/
+}
+
+header {
+	background-image: url(images/DesktopBubbles.jpg);
+	color: white;
+	padding: 5px 10px 5px 10px;
+}
+
+footer {
+	clear: left;
+	background-color: purple;
+	color: white;
+	width: 100%;
+}
+
+h1 {
+	margin-top: 5px;
 }
