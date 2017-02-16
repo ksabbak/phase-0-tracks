@@ -9,3 +9,34 @@ First of all, I would like to point out as a non-robot entity that this release 
 -Push the button
 
 (tbh I have no idea which floor button this robot should push either)
+
+
+MAKE TEA:
+
+-Enter the kitchen
+-Approach the counter on the east side of the kitchen, go to the south end of that counter.
+-Plug in the electric kettle base to the wall outlet that protrudes from the wall (not the other one because that doesn't get sufficient power and I'm likely living in a giant fire hazard of an apartment)
+-Remove the lid from the electric kettle
+-Pick up the electric kettle
+-Turn to face the south and approach the sink
+-Turn flip down the water filter lever
+-Lift up the faucet handle, moving it to the right
+-Place the large opening of the kettle under the stream of water
+-Remove the kettle from under the water stream once the water is an inch below the line inside the kettle labeled "Max"
+-Push down on the faucet handle until no more water is coming out of the faucet.
+-Take the kettle to the base (on the southern end of the east counter)
+-Place it on the base.
+-Replace the lid
+-Flick down the only lever on the kettle
+-Turn to face the sink again (south)
+-Open the cabinet that is up and to the right
+-On the middle shelf remove a mug, hold it
+-Turn 180º (face north)
+-Walk to the bookshelf
+-Remove a teabag from the box labeled "mint chocolate rooibos"
+-Place the teabag in the mug
+-Face east and walk to the souther end of the east counter
+-Wait until the lever on the kettle has returned to its original position
+-Pour the water from the kettle into the mug
+-Wait 4-6 minutes
+-Drink the tea.
