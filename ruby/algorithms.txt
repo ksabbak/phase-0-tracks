@@ -1,0 +1,11 @@
+First of all, I would like to point out as a non-robot entity that this release is very vague and I'm not 100% sure what I'm supposed to be doing here, so let's see how this works?
+
+-Press the button outside the elevator 
+	-if more than one button is present press the top button if going up and bottom button if going down
+-Wait until doors open
+-Enter elevator when doors open (exiting humans be damned, you're a robot, they're squishy)
+-If no buttons are visible in front of you, turn to face the wall on your right, do this until buttons are visible.
+-Find the button that matches the number of the desired floor
+-Push the button
+
+(tbh I have no idea which floor button this robot should push either)
