@@ -14,7 +14,7 @@ def vampire_check(age_match, order_garlic, insurance_enroll, name)
 	vampire_check_message = "Results inconclusive"
 
 	case name 
-	when "Drake Cula", "Tu Fang", "Spike", "Angel", "Drusilla", "Edward Cullen", "Carmilla"
+	when "Drake Cula", "Tu Fang", "Spike", "Angel", "Drusilla", "Edward Cullen", "Carmilla", "Lestat"
 		return vampire_check_message = "Definitely a vampire."
 	end
 
