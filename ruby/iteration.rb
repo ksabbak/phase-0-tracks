@@ -13,3 +13,13 @@ puts neighborhood_string
 bars.each do |neighborhood, bar|
 	puts "A bar in #{neighborhood.to_s.sub(/[_]/, " ")} is #{bar}"
 end
+
+p neighborhoods
+neighborhoods.map! do |neighborhood| 
+	words = neighborhood.split
+	words.map! do |word|
+		word.capitalize
+	end
+	neighborhood = words.join(" ")
+end
+p neighborhoods
