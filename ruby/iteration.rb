@@ -28,7 +28,8 @@ end
 p neighborhoods
 
 
-#RELEASE 2
+#RELEASE 2 - UNCOMMENT BETWEEN NUMBERS TO CHECK CODE. 
+#CODE UNDER THE NUMBER CORRESPONDS TO NUMBER
 
 #1
 # neighborhoods.delete_if do |neighborhood|
@@ -53,15 +54,27 @@ p neighborhoods
 # p bars
 
 #3
-new_neighborhoods = neighborhoods.drop_while do |neighborhood|
-	neighborhood.include? " "
-end
-p new_neighborhoods
+# neighborhoods.select! do |neighborhood|
+# 	!neighborhood.include? " "
+# end
+# p neighborhoods
 
-bars.keep_if do |neighborhood, bar|
-	bar.length <= 6
-	if bar.length <= 6
-		break
-	end
-end
-p bars
+# bars.select! do |neighborhood, bar|
+# 	bar.length <= 6
+# end
+# p bars
+
+
+#4
+# new_neighborhoods = neighborhoods.drop_while do |neighborhood|
+# 	neighborhood.include? " "
+# end
+# p new_neighborhoods
+
+# bars.keep_if do |neighborhood, bar|
+# 	bar.length <= 6
+# 	if bar.length <= 6
+# 		break
+# 	end
+# end
+# p bars
