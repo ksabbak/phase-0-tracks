@@ -1,3 +1,15 @@
+# Ask user for name, age, number of kids, fave design style, least fav design style, square feet, budget, ikea furniture
+# get from user the data asked for
+# assign data to a list 
+# print list
+# ask if list is okay
+#  if not okay
+#  	ask what's wrong
+#  	get what's wrong
+#  	change list
+#  	show new list
+#  if okay then we're good.
+
 
 
 $design_profile = {}
