@@ -41,7 +41,7 @@ end
 def get_budget
 	puts "Budget: "
 	budget = gets.chomp
-	$design_profile[:budget] = "$ #{budget}"
+	$design_profile[:budget] = "$#{budget}"
 end
 
 def get_ikea
@@ -55,6 +55,46 @@ def get_ikea
 	$design_profile[:ikea_furniture] = has_ikea
 end
 
+def check_data
+	puts "Does this look right?"
+verify = gets.chomp
+if (verify != "n") && ("yes yeah definitely affirmative true".include? verify) 
+		puts "Great, have a nice day."
+		return true
+	else
+		puts "What would you like to change?"
+		change = gets.chomp.downcase.sub(" ", "_").intern
+		case change
+		when :name
+			get_name
+		when :age
+			get_age
+		when :children
+			get_children_count
+		when :favorite_style
+			get_fav_style
+		when :least_favorite_style
+			get_least_fav_style
+		when :budget
+			get_budget
+		when :ikea_furniture
+			get_ikea
+		else
+			puts "Something went wrong, please try again."
+		end
+	end
+	print_hash
+	return false
+end
+
+def print_hash
+	$design_profile.each do |key, value|
+	string_key = key.to_s.sub(/[_]/, " ").capitalize
+	puts "#{string_key}: #{value}"
+	end
+end
+
+
 
 puts "Please enter the following:"
 
@@ -67,15 +107,11 @@ get_budget
 get_size
 get_ikea
 
+print_hash
 
-$design_profile.each do |key, value|
-	string_key = key.to_s.sub(/[_]/, " ").capitalize
-	puts "#{string_key}: #{value}"
+all_clear = false
+
+until all_clear
+	all_clear = check_data
 end
-
-
-
-
-p $design_profile
-
 
