@@ -75,7 +75,7 @@ if (verify != "n") && ("yes yeah definitely affirmative true".include? verify)
 		return true
 	else
 		puts "What would you like to change?"
-		change = gets.chomp.downcase.sub(" ", "_").intern
+		change = gets.chomp.downcase.gsub(" ", "_").intern
 		case change
 		when :name
 			get_name
@@ -101,7 +101,7 @@ end
 
 def print_hash
 	$design_profile.each do |key, value|
-	string_key = key.to_s.sub(/[_]/, " ").capitalize
+	string_key = key.to_s.gsub(/[_]/, " ").capitalize
 	puts "#{string_key}: #{value}"
 	end
 end
