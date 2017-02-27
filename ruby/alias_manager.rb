@@ -1,3 +1,14 @@
+# Get person's name
+# make person's first name their last name and last name their first name (swap first and last names)
+# Take each letter of the person's name 
+# 	if letter is a consonant move it one consonant forward (e.g. b->c)
+# 	if letter is a vowel move one vowel forward (e.g. a->e)
+# 	if it's none of those, just let it be itself.
+# Give the person their new alias.
+
+
+
+
 
 def scramble(persona)
 
