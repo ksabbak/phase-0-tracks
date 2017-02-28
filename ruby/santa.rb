@@ -47,7 +47,9 @@ santa_attributes = [["agender", "black"],
 					["male", "Japanese"],
 					["female", "prefer not to say"],
 					["gender fluid", "Mystical Creature (unicorn)"],
-					["N/A", "N/A"] ]
+					["N/A", "N/A"], 
+					["female", ""],
+					["third gender", "Latinx"] ]
 
 santa_attributes.each { |attributes| santas << Santa.new(attributes[0], attributes[1]) }
 
