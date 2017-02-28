@@ -8,7 +8,7 @@ class Santa
 		@ethnicity = ethnicity
 		@age = 0
 		@reindeer_ranking = [ "Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen" ]
-		puts "Initializing Santa instance with gender: #{@gender} and ethnicity: #{ethnicity}"	
+		# puts "Initializing Santa instance with gender: #{@gender} and ethnicity: #{ethnicity}"	
 
 	end
 
@@ -43,27 +43,39 @@ class Santa
 
 end
 
-santas = []
-santa_attributes = [["agender", "black"],
-					["female", "Latino"],
-					["bigender", "white"],
-					["male", "Japanese"],
-					["female", "prefer not to say"],
-					["gender fluid", "Mystical Creature (unicorn)"],
-					["N/A", "N/A"], 
-					["female", ""],
-					["third gender", "Latinx"] ]
+# santas = []
+# santa_attributes = [["agender", "black"],
+# 					["female", "Latino"],
+# 					["bigender", "white"],
+# 					["male", "Japanese"],
+# 					["female", "prefer not to say"],
+# 					["gender fluid", "Mystical Creature (unicorn)"],
+# 					["N/A", "N/A"], 
+# 					["female", ""],
+# 					["third gender", "Latinx"] ]
 
-santa_attributes.each { |attributes| santas << Santa.new(attributes[0], attributes[1]) }
+# santa_attributes.each { |attributes| santas << Santa.new(attributes[0], attributes[1]) }
 
-p "This is Santa 7: #{santas[6].gender} #{santas[6].ethnicity} #{santas[6].age} #{santas[6].reindeer_ranking}"
+# p "This is Santa 7: #{santas[6].gender} #{santas[6].ethnicity} #{santas[6].age} #{santas[6].reindeer_ranking}"
 
-p "Santa 3 identifies as #{santas[2].gender}"
-santas[2].gender = "nonbinary"
-p "Santa 3 now identifies as #{santas[2].gender}"
+# p "Santa 3 identifies as #{santas[2].gender}"
+# santas[2].gender = "nonbinary"
+# p "Santa 3 now identifies as #{santas[2].gender}"
 
-santas[0].get_mad_at("Rudolph")
-p santas[0].reindeer_ranking
+# santas[0].get_mad_at("Rudolph")
+# p santas[0].reindeer_ranking
 
-p santas[4].celebrate_birthday
-p santas[4].age
+# p santas[4].celebrate_birthday
+# p santas[4].age
+
+genders = ["agender", "male", "female", "nonbinary", "genderfluid", "N/A"]
+ethnicities = ["black", "Asian", "Latinx", "white", "Middle Eastern", "Native American", "Pacific Islander"]
+
+100.times do 
+	new_santa = Santa.new(genders.sample, ethnicities.sample)
+	random = Random.new.rand(140) + 1
+	random.times {new_santa.celebrate_birthday}
+	puts "This Santa is #{new_santa.gender}, #{new_santa.ethnicity}, and #{new_santa.age} years old."
+	puts "+" * 12
+end
+
