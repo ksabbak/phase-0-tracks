@@ -1,6 +1,7 @@
 class Santa
 
-	#attr_reader :gender, :ethnicity, :age, :reindeer_ranking
+	attr_reader :ethnicity, :age 
+	attr_accessor :reindeer_ranking, :gender
 
 	def initialize(gender, ethnicity)
 		@gender = gender
@@ -39,24 +40,6 @@ class Santa
 		@gender = new_gender
 	end
 
-	##GETTER METHODS
-	def age
-		@age
-	end
-
-	def ethnicity
-		@ethnicity
-	end
-
-	#I know these were not listed, but lbr here, if we have to change these things
-	#there should be some sort of way to check them???
-	def gender
-		@gender
-	end
-
-	def reindeer_ranking
-		@reindeer_ranking
-	end
 
 end
 
