@@ -37,8 +37,8 @@ def create_list(list_string)
 	grocery_list
 end
 
-def add_item(list, item, value)
-
+def add_item(list, item, value = 1)
+	list[item] = value
 end
 
 def remove_item(list, item)
@@ -51,4 +51,8 @@ def print_list(list)
 end
 
 
-create_list("carrots apples cereal pizza")
+new_list = create_list("carrots apples cereal pizza")
+add_item(new_list, "avocado", 6)
+print_list(new_list)
+add_item(new_list, "grape")
+print_list(new_list)
