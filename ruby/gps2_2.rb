@@ -28,7 +28,13 @@
 # output: the string
 
 def create_list(list_string)
-	
+	items = list_string.split(" ")
+	grocery_list = {}
+	items.each do |item|
+		grocery_list[item] = 1
+	end
+	print_list(grocery_list)
+	grocery_list
 end
 
 def add_item(list, item, value)
@@ -40,6 +46,9 @@ def remove_item(list, item)
 end
 
 def print_list(list)
-
+	puts "the list will print here"
+	p list
 end
 
+
+create_list("carrots apples cereal pizza")
