@@ -73,3 +73,24 @@ new_list.remove_item("carrots")
 # print_list(new_list)
 new_list.update_quantity("apples", 10)
 new_list.print_list
+
+
+# # What did you learn about pseudocode from working on this challenge?
+# 	That it's more useful than I've been treating it, but also to use it as a guide
+# 	and that I don't have to think through the whole thing before pseudocoding, it's
+# 	okay if things change.
+# # What are the tradeoffs of using arrays and hashes for this challenge?
+# 	You'd have to use multiple arrays to do the array properly (array of arrays
+# 	or even two arrays that are separate, but that'd be a mess because then if the 
+# 	indexes end up off, everything is sad), hashes seem ideal for this challenge tbh.
+# # What does a method return?
+# 	The last evaluated expression. We mostly ignored our method returns just because 
+# 	the way hashes work with pointers and so forth, so *shrug*
+# # What kind of things can you pass into methods as arguments?
+# 	Objects. All sorts of objects. 
+# # How can you pass information between methods?
+# 	Well, you can pass them in, or you can have a variable that covers both their 
+# 	scopes (i.e. the instance variable we used when we modded this to work with a class
+# 	or a global var but we all know that's trash).
+# # What concepts were solidified in this challenge, and what concepts are still confusing?
+# 	This challenge was a nice review of week 5. I don't think I'm confused about anything.
