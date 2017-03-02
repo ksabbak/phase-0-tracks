@@ -26,33 +26,50 @@
 # input: list
 # steps: iterate through the list and update a string, it'll be nice.
 # output: the string
+class GroceryList
+	attr_reader :list
 
-def create_list(list_string)
-	items = list_string.split(" ")
-	grocery_list = {}
-	items.each do |item|
-		grocery_list[item] = 1
+	def initialize(list_string)
+		items = list_string.split(" ")
+		@list = {}
+		items.each do |item|
+			@list[item.downcase] = 1
+		end
+		print_list
+		@list
 	end
-	print_list(grocery_list)
-	grocery_list
+
+	def add_item(item, value = 1)
+		@list[item.downcase] = value
+	end
+
+	def remove_item(item)
+		@list.delete(item.downcase)
+	end
+
+	def update_quantity(item, new_quant)
+		@list[item] = new_quant
+	end
+
+	def print_list
+		puts "Your grocery list is below:"
+		@list.each do |item, quantity|
+			puts "#{item.capitalize}: #{quantity}"
+		end
+		puts "Happy shopping!"
+
+	end
 end
 
-def add_item(list, item, value = 1)
-	list[item] = value
-end
 
-def remove_item(list, item)
-
-end
-
-def print_list(list)
-	puts "the list will print here"
-	p list
-end
-
-
-new_list = create_list("carrots apples cereal pizza")
-add_item(new_list, "avocado", 6)
-print_list(new_list)
-add_item(new_list, "grape")
-print_list(new_list)
+new_list = GroceryList.new("carrots apples cereal pizza")
+new_list.add_item("avocado", 6)
+# print_list(new_list)
+p "*******************************"
+p new_list.add_item("grape")
+p "*******************************"
+# print_list(new_list)
+new_list.remove_item("carrots")
+# print_list(new_list)
+new_list.update_quantity("apples", 10)
+new_list.print_list
