@@ -33,13 +33,17 @@
 # 3. If GAMEBOARD does have _s then print something rude
 
 class Game
-
-	attr_reader :gameboard, :wrong_guess
+=begin
+	@original_word
+	@gameboard
+	@guesses_remaining
+=end
+	attr_reader :gameboard, :guesses_remaining
 
 	def initialize(word)
-		
-		@original_word = word
+		@original_word = word.downcase
 		@gameboard = ""
+		
 
 		letter_replace = "_ "
 
@@ -53,17 +57,51 @@ class Game
 				@gameboard.chomp!(" ") << letter 
 			end
 		end
-		@gameboard.chomp(" ")	
+
+		establish_guess_limit
+		@gameboard.chomp!(" ")	
 	end
+	private
+		def establish_guess_limit
+			
+			total_guessable = @gameboard.count("_")
+			
+			if total_guessable < 5
+				@guesses_remaining = total_guessable * 3 
+			elsif total_guessable < 15
+				@guesses_remaining = total_guessable * 2
+			else
+				@guesses_remaining = (total_guessable * 1.5).to_i
+			end
+		end
+	
 
 	def process_guess(letter)
+
 	end
 
 	def update_gameboard(letter)
 	end
 
+	def is_over?
+	end
+
 	def final_message
 	end
+
+	def print_status
+		status_string = "full string"
+		puts status_string
+		status_string
+	end
+
+	private
+		def decrement_guesses
+			@guesses_remaining -= 1
+		end
+	
+
 end
 
-p game = Game.new("Can't stop me")
+#p game = Game.new("Can't stop me")
+
