@@ -40,7 +40,7 @@ class Game
 	@prev_guesses 
 	@win
 =end
-	attr_reader :gameboard, :guesses_remaining, :prev_guesses
+	attr_reader :gameboard, :guesses_remaining, :prev_guesses, :win
 
 	def initialize(word)
 		@original_word = word.downcase
@@ -82,16 +82,23 @@ class Game
 		if @original_word.include? letter
 			update_gameboard(letter)
 			print_status
-			return true
+			true
 		else
 			print_status
-			return false
+			false
 		end
 	end
 
 	def update_gameboard(letter)
+		
+		special_char_index_modifier = 0
+
 		@gameboard.split("").each_index do |position|
-			if (@gameboard[position] == "_") && (@original_word[(position / 2)] == letter)
+			if !(@gameboard[position].match(/^[[:alpha:]]+$/)) && !(" _".include? @gameboard[position])
+				special_char_index_modifier += 1
+			end
+
+			if (@gameboard[position] == "_") && (@original_word[(position / 2) + special_char_index_modifier] == letter)
 				@gameboard[position] = letter
 			end
 		end
@@ -109,10 +116,14 @@ class Game
 	end
 
 	def final_message
+		if @win
+			"*confetti* we have a winner!"
+		else
+			"Game over man, game over! Better luck next time."
+		end
 	end
 
 	def print_status
-		status_string = "full string"
 		puts "#{@gameboard}"
 		puts "Turns remaining: #{guesses_remaining}"
 	end
@@ -121,13 +132,28 @@ class Game
 		def establish_guess_limit
 			
 			total_guessable = @gameboard.count("_")
+
+			#So it occurred to me that having more than 26 guesses made this game
+			#impossible to lose. But limiting the guesses to 25 could make it 
+			#impossible to win. While I have set most of the guess limits to 
+			#depend on the length of the original word/phrase, I have also 
+			#controlled for those scenarios.
+
+			unique_letters_total = 0
+			"abcdefghijklmnopqrstuvwxyz".each_char do |letter|
+				if @original_word.include? letter
+					unique_letters_total += 1
+				end
+			end
 			
 			if total_guessable < 5
 				@guesses_remaining = total_guessable * 3 
-			elsif total_guessable < 15
-				@guesses_remaining = total_guessable * 2
-			else
+			elsif total_guessable < 14
 				@guesses_remaining = (total_guessable * 1.5).to_i
+			elsif unique_letters_total < 20
+				@guesses_remaining = 20
+			else
+				guesses_remaining = unique_letters_total + 1
 			end
 		end
 
@@ -136,5 +162,28 @@ class Game
 		end
 end
 
-#p game = Game.new("Can't stop me")
+#DRIVER CODE TIME
+
+puts "Welcome to Game, the violence free version of Hangman!"
+puts "Please enter a word or phrase for your opponent to guess, don't let them see!"
+input = gets.chomp
+game = Game.new(input)
+
+print "\n" * 20 # No cheating!
+game.print_status
+puts "Hello player two! As you can see above, you have a limited number of turns"
+puts "to guess your opponent's word or phrase."
+until game.is_over?
+	puts "Please enter a letter: "
+	input = gets.chomp
+	if input.downcase.match(/^[[:alpha:]]+$/) && input.length == 1
+		game.process_guess(input)
+	else
+		puts "That's not going to help you."
+		game.print_status
+	end
+end
+puts game.final_message
+
+
 

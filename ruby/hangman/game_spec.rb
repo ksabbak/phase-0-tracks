@@ -14,7 +14,7 @@ describe Game do
 	end
 
 	it "Updates the remaining guesses when initialized" do
-		expect(game.guesses_remaining).to eq 20
+		expect(game.guesses_remaining).to eq 15
 	end
 	
 #USER TURNS
@@ -28,13 +28,13 @@ describe Game do
 
 	it "Decrements the number of guesses left" do
 		game.process_guess("e")
-		expect(game.guesses_remaining).to eq 19
+		expect(game.guesses_remaining).to eq 14
 	end
 
 	it "Doesn't decrement the number of guesses left if already guessed" do
 		game.process_guess("e")
 		game.process_guess("e")
-		expect(game.guesses_remaining).to eq 19
+		expect(game.guesses_remaining).to eq 14
 	end
 
 	it "Updates the gameboard with the guess" do
@@ -81,6 +81,6 @@ describe Game do
 		new_game = Game.new("e")
 		new_game.process_guess("e")
 		new_game.is_over?
-		expect(new_game.final_message).to eq "*confetti* we have a winner! " 
+		expect(new_game.final_message).to eq "*confetti* we have a winner!" 
 	end
 end
