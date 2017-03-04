@@ -19,11 +19,11 @@ describe Game do
 	
 #USER TURNS
 	it "Checks user input guess against the word they're guessing (in word)" do
-		expeect(game.process_guess("e")).to be true
+		expect(game.process_guess("e")).to be true
 	end
 
 	it "Checks user input guess against the word they're guessing (not in word)" do
-		expeect(game.process_guess("z")).to be false
+		expect(game.process_guess("z")).to be false
 	end
 
 	it "Decrements the number of guesses left" do

@@ -37,13 +37,14 @@ class Game
 	@original_word
 	@gameboard
 	@guesses_remaining
+	@prev_guesses 
 =end
-	attr_reader :gameboard, :guesses_remaining
+	attr_reader :gameboard, :guesses_remaining, :prev_guesses
 
 	def initialize(word)
 		@original_word = word.downcase
 		@gameboard = ""
-		
+		@prev_guesses = []
 
 		letter_replace = "_ "
 
@@ -61,23 +62,29 @@ class Game
 		establish_guess_limit
 		@gameboard.chomp!(" ")	
 	end
-	private
-		def establish_guess_limit
-			
-			total_guessable = @gameboard.count("_")
-			
-			if total_guessable < 5
-				@guesses_remaining = total_guessable * 3 
-			elsif total_guessable < 15
-				@guesses_remaining = total_guessable * 2
-			else
-				@guesses_remaining = (total_guessable * 1.5).to_i
-			end
-		end
 	
-
+	#Processes a user's guess. Assumes a single alpha char input.
 	def process_guess(letter)
 
+		letter = letter.downcase
+
+		if @prev_guesses.include? letter
+			puts "This has already been guessed"
+			print_status
+			return false 
+		else
+			@prev_guesses << letter
+			decrement_guesses
+		end
+
+		if @original_word.include? letter
+			update_gameboard(letter)
+			print_status
+			return true
+		else
+			print_status
+			return false
+		end
 	end
 
 	def update_gameboard(letter)
@@ -91,16 +98,26 @@ class Game
 
 	def print_status
 		status_string = "full string"
-		puts status_string
-		status_string
+		puts "#{@gameboard}"
+		puts "Turns remaining: #{guesses_remaining}"
 	end
 
 	private
+		def establish_guess_limit
+			
+			total_guessable = @gameboard.count("_")
+			
+			if total_guessable < 5
+				@guesses_remaining = total_guessable * 3 
+			elsif total_guessable < 15
+				@guesses_remaining = total_guessable * 2
+			else
+				@guesses_remaining = (total_guessable * 1.5).to_i
+			end
+		end
 		def decrement_guesses
 			@guesses_remaining -= 1
 		end
-	
-
 end
 
 #p game = Game.new("Can't stop me")
