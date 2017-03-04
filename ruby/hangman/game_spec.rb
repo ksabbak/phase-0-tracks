@@ -57,6 +57,13 @@ describe Game do
 	it "Tests to see if the user wins or is out of turns (game ongoing)" do
 		expect(game.is_over?).to be false
 	end
+
+	it "Tests to see if the user wins or is out of turns (win)" do
+		new_game = Game.new("e")
+		new_game.process_guess("e")
+		new_game.is_over?
+		expect(new_game.is_over?).to be true
+	end
 	
 	it "Tests to see if the user wins or is out of turns (0 turns)" do
 		new_game = Game.new("e")
@@ -66,7 +73,14 @@ describe Game do
 		expect(new_game.is_over?).to be true
 	end
 
-	it "Returns good or bad message depending on win/loss" do
-		expect(game.final_message).to eq "Bad message" #THIS WILL CHANGE WHEN THE CODE IS UPDATED
+	it "Returns bad message depending on loss" do
+		expect(game.final_message).to eq "Game over man, game over! Better luck next time." 
+	end
+
+	it "Returns good message depending on win" do
+		new_game = Game.new("e")
+		new_game.process_guess("e")
+		new_game.is_over?
+		expect(new_game.final_message).to eq "*confetti* we have a winner! " 
 	end
 end
