@@ -38,6 +38,7 @@ class Game
 	@gameboard
 	@guesses_remaining
 	@prev_guesses 
+	@win
 =end
 	attr_reader :gameboard, :guesses_remaining, :prev_guesses
 
@@ -45,6 +46,7 @@ class Game
 		@original_word = word.downcase
 		@gameboard = ""
 		@prev_guesses = []
+		@win = false
 
 		letter_replace = "_ "
 
@@ -69,7 +71,7 @@ class Game
 		letter = letter.downcase
 
 		if @prev_guesses.include? letter
-			puts "This has already been guessed"
+			puts "\"#{letter}\" has already been guessed"
 			print_status
 			return false 
 		else
@@ -97,6 +99,13 @@ class Game
 	end
 
 	def is_over?
+		if !(@gameboard.include? "_")
+			@win = true
+		elsif guesses_remaining == 0 
+			true
+		else
+			false
+		end
 	end
 
 	def final_message

@@ -55,7 +55,7 @@ describe Game do
 
 #END GAME
 	it "Tests to see if the user wins or is out of turns (game ongoing)" do
-		expect(game.is_over).to be false
+		expect(game.is_over?).to be false
 	end
 	
 	it "Tests to see if the user wins or is out of turns (0 turns)" do
@@ -63,7 +63,7 @@ describe Game do
 		new_game.process_guess("z")
 		new_game.process_guess("x")
 		new_game.process_guess("y")
-		expect(new_game.is_over).to be false
+		expect(new_game.is_over?).to be true
 	end
 
 	it "Returns good or bad message depending on win/loss" do
