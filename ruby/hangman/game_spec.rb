@@ -4,7 +4,7 @@ describe Game do
 	let(:game) {Game.new("Hello World!")}
 
 	it "Creates the board on initialization" do
-		expect(game.gameboard).to be ""
+		expect(game.gameboard).to eq "_ _ _ _ _  _ _ _ _ _!"
 	end
 	
 	it "Checks user input guess against the word they're guessing" do

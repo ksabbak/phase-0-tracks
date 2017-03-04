@@ -37,7 +37,23 @@ class Game
 	attr_reader :gameboard, :wrong_guess
 
 	def initialize(word)
-		p "just run please."
+		
+		@original_word = word
+		@gameboard = ""
+
+		letter_replace = "_ "
+
+		words = word.split("")
+		words.each do |letter|
+			if letter.downcase.match(/^[[:alpha:]]+$/) #Tbh, I'm not sure if this is easier than pasting in the alphabet string
+				@gameboard << letter_replace
+			elsif " _".include? letter
+				@gameboard << " "
+			else
+				@gameboard.chomp!(" ") << letter 
+			end
+		end
+		@gameboard.chomp(" ")	
 	end
 
 	def process_guess(letter)
@@ -50,4 +66,4 @@ class Game
 	end
 end
 
-game = Game.new("Hello world!")
+p game = Game.new("Can't stop me")
