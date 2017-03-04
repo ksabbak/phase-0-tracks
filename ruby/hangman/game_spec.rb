@@ -5,12 +5,12 @@ describe Game do
 
 #INITIALIZING
 	it "Creates the board on initialization" do
-		expect(game.gameboard).to eq "_ _ _ _ _  _ _ _ _ _!"
+		expect(game.gameboard).to eq "_ _ _ _ _   _ _ _ _ _!"
 	end
 
 	it "Handles an underscore character when initialized" do
 		game_underscore = Game.new("I_hate my opponent")
-		expect(game_underscore.gameboard).to eq "_  _ _ _ _  _ _  _ _ _ _ _ _ _ _"
+		expect(game_underscore.gameboard).to eq "_   _ _ _ _   _ _   _ _ _ _ _ _ _ _"
 	end
 
 	it "Updates the remaining guesses when initialized" do
@@ -39,12 +39,18 @@ describe Game do
 
 	it "Updates the gameboard with the guess" do
 		game.process_guess("e")
-		expect(game.gameboard).to eq "_ e _ _ _  _ _ _ _ _!"
+		expect(game.gameboard).to eq "_ e _ _ _   _ _ _ _ _!"
+	end
+
+	it "Updates the gameboard with the guesses" do
+		game.process_guess("e")
+		game.process_guess("l")
+		expect(game.gameboard).to eq "_ e l l _   _ _ _ l _!"
 	end
 
 	it "Does not update the gameboard with a wrong guess" do
 		game.process_guess("z")
-		expect(game.gameboard).to eq "_ _ _ _ _  _ _ _ _ _!"
+		expect(game.gameboard).to eq "_ _ _ _ _   _ _ _ _ _!"
 	end
 
 #END GAME

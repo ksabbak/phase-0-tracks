@@ -53,7 +53,7 @@ class Game
 			if letter.downcase.match(/^[[:alpha:]]+$/) #Tbh, I'm not sure if this is easier than pasting in the alphabet string
 				@gameboard << letter_replace
 			elsif " _".include? letter
-				@gameboard << " "
+				@gameboard << "  "
 			else
 				@gameboard.chomp!(" ") << letter 
 			end
@@ -88,6 +88,12 @@ class Game
 	end
 
 	def update_gameboard(letter)
+		@gameboard.split("").each_index do |position|
+			if (@gameboard[position] == "_") && (@original_word[(position / 2)] == letter)
+				@gameboard[position] = letter
+			end
+		end
+		@gameboard
 	end
 
 	def is_over?
@@ -115,6 +121,7 @@ class Game
 				@guesses_remaining = (total_guessable * 1.5).to_i
 			end
 		end
+
 		def decrement_guesses
 			@guesses_remaining -= 1
 		end
