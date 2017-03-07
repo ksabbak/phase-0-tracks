@@ -53,10 +53,7 @@ class VirusPredictor
     end
     
     number_of_deaths = (@population * death_calc_percentage).floor
-    
-    
-
-  end
+   end
 
   # Calculates the speed based on population density 
   # prints a string
@@ -111,3 +108,32 @@ end
 
 #=======================================================================
 # Reflection Section
+__END__
+
+1. What are the differences between the two different hash syntaxes shown in the state_data file?
+
+  So, the colon syntax only works if your keys are symbols, and the "hash rocket" works for everything.
+
+2. What does require_relative do? How is it different from require?
+
+  Both require_relative and require pull data from another file into your current file.
+  require_relative works exclusively from the same folder, and require needs the file path
+  but can pull a file from anywhere (including the same folder)
+
+3. What are some ways to iterate through a hash?
+
+  Loops, are a great way to itterate through anything. Using the each with the |key, value| block
+  parameters is ideal (obviously naming them whatever you want though.) The internet is saying
+  that using the each_pair function is a little more common, so I may try that next time
+  but it looks like they're essentially the same thing. At least each_pair will make it obvious
+  you're working with a hash and not an array.
+
+4. When refactoring virus_effects, what stood out to you about the variables, if anything?
+  
+  It just baffled me why anyone would think it's necessary to pass in instance variables
+  to a method in the instance that already has access to the variables.
+
+
+5. What concept did you most solidify in this challenge?
+  
+  Well, I learned about constants, and that was cool. I guess I got a better handle on DRY code.
