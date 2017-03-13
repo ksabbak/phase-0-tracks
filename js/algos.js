@@ -71,7 +71,25 @@ do the following the length number of times:
 RETURN: the words array 
 **/
 
+function createStringArray(length){
+	var alphabet = "abcdefghijklmnopqrstuvwxyz";
+	var words = [];
 
+	//Monkeys and keyboards my friends.
+	for(var i = 0; i < length; i++){
+		randomString = "";
+		//console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+		stringLength = Math.floor(Math.random() * 10) + 1;
+		for(var j = 0; j < stringLength; j++){
+			randomLetter = Math.floor(Math.random() * 26);
+			randomString += alphabet[randomLetter];
+			//console.log("++++++++++++++++" + randomString)
+		}
+		words.push(randomString);
+	}
+
+	return words;
+}
 
 
 
@@ -88,3 +106,5 @@ console.log(checkPairMatch(steve, tamir));
 var shark = {type: "shark", name: "ed", age: 2000}; 
 var sandwich = {type: "sandwich", ingredients: 3};
 console.log(checkPairMatch(shark, sandwich));
+
+console.log(createStringArray(90));
