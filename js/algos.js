@@ -14,7 +14,7 @@ RETURN: string - the item in the array at index longest
 
 //This only returns the FIRST longest phrase if there are more than one
 //phrase of the longest length (e.g. ["a", "b", "abc", "xyz"] will only return "abc")
-//I will consider fixing this if I have time.
+//I will consider fixing this if I have time. --SEE getALlLongest below
 function getLongest(phrases){	
 	var longest;
 	var longestLength = 0;
@@ -27,6 +27,24 @@ function getLongest(phrases){
 		}
 	}
 	return phrases[longest];
+}
+
+//This returns ALL longest word/phrases in the form of another array.
+function getAllLongest(phrases){	
+	var longests = [];
+	var longestLength = 0;
+
+	for(var phraseIndex in phrases){
+		currentLength = phrases[phraseIndex].length;
+		if (currentLength > longestLength) {
+			longests = []
+			longests.push(phrases[phraseIndex]);
+			longestLength = currentLength;
+		} else if (currentLength === longestLength) {
+			longests.push(phrases[phraseIndex]);
+		}
+	}
+	return longests;
 }
 
 /**
@@ -107,4 +125,14 @@ var shark = {type: "shark", name: "ed", age: 2000};
 var sandwich = {type: "sandwich", ingredients: 3};
 console.log(checkPairMatch(shark, sandwich));
 
-console.log(createStringArray(90));
+//console.log(createStringArray(90));
+
+//Add driver code that does the following 10 times: generates an array, prints the 
+//array, feeds the array to your "longest word" function, and prints the result
+
+for (var i = 0; i < 10; i++){
+	var words = createStringArray(i + 2);
+	console.log(words);
+	console.log(getLongest(words));
+	console.log("ALL the longest words: " + getAllLongest(words))
+}
