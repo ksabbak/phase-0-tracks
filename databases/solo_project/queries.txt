@@ -1,0 +1,91 @@
+sqlite> SELECT * FROM books;
+1|Inda|1|576|true
+2|The Fox|1|691|true
+3|King's Shield|1|594|true
+4|Treason's Shore|1|691|false
+5|Ancillary Mercy|2|330|false
+6|All the Birds in the Sky|3|320|true
+7|Sabriel|4|491|true
+8|Lirael|4|496|true
+
+sqlite> UPDATE books SET pages = 705 WHERE title = "Lirael";
+sqlite> SELECT * FROM books;
+1|Inda|1|576|true
+2|The Fox|1|691|true
+3|King's Shield|1|594|true
+4|Treason's Shore|1|691|false
+5|Ancillary Mercy|2|330|false
+6|All the Birds in the Sky|3|320|true
+7|Sabriel|4|491|true
+8|Lirael|4|705|true
+
+sqlite> SELECT * FROM books, authors WHERE books.author_id = authors.id;
+1|Inda|1|576|true|1|Sherwood Smith
+2|The Fox|1|691|true|1|Sherwood Smith
+3|King's Shield|1|594|true|1|Sherwood Smith
+4|Treason's Shore|1|691|false|1|Sherwood Smith
+5|Ancillary Mercy|2|330|false|2|Anne Leckie
+6|All the Birds in the Sky|3|320|true|3|Charlie Jane Anders
+7|Sabriel|4|491|true|4|Garth Nix
+8|Lirael|4|705|true|4|Garth Nix
+
+sqlite> SELECT books.title, authors.name, books.pages, books.read FROM books JOIN authors ON authors.id = books.author_id;
+Inda|Sherwood Smith|576|true
+The Fox|Sherwood Smith|691|true
+King's Shield|Sherwood Smith|594|true
+Treason's Shore|Sherwood Smith|691|false
+Ancillary Mercy|Anne Leckie|330|false
+All the Birds in the Sky|Charlie Jane Anders|320|true
+Sabriel|Garth Nix|491|true
+Lirael|Garth Nix|705|true
+
+sqlite> DELETE FROM books WHERE title = "Lirael"
+   ...> ;
+sqlite> SELECT * FROM books;
+1|Inda|1|576|true
+2|The Fox|1|691|true
+3|King's Shield|1|594|true
+4|Treason's Shore|1|691|false
+5|Ancillary Mercy|2|330|false
+6|All the Birds in the Sky|3|320|true
+7|Sabriel|4|491|true
+
+
+sqlite> SELECT books.title, authors.name FROM books LEFT OUTER JOIN authors ON authors.id = books.author_id;
+Inda|Sherwood Smith
+The Fox|Sherwood Smith
+King's Shield|Sherwood Smith
+Treason's Shore|Sherwood Smith
+Ancillary Mercy|Anne Leckie
+All the Birds in the Sky|Charlie Jane Anders
+Sabriel|Garth Nix
+
+SELECT * FROM books CROSS JOIN authors;
+1|Inda|1|576|true|1|Sherwood Smith
+1|Inda|1|576|true|2|Anne Leckie
+1|Inda|1|576|true|3|Charlie Jane Anders
+1|Inda|1|576|true|4|Garth Nix
+2|The Fox|1|691|true|1|Sherwood Smith
+2|The Fox|1|691|true|2|Anne Leckie
+2|The Fox|1|691|true|3|Charlie Jane Anders
+2|The Fox|1|691|true|4|Garth Nix
+3|King's Shield|1|594|true|1|Sherwood Smith
+3|King's Shield|1|594|true|2|Anne Leckie
+3|King's Shield|1|594|true|3|Charlie Jane Anders
+3|King's Shield|1|594|true|4|Garth Nix
+4|Treason's Shore|1|691|false|1|Sherwood Smith
+4|Treason's Shore|1|691|false|2|Anne Leckie
+4|Treason's Shore|1|691|false|3|Charlie Jane Anders
+4|Treason's Shore|1|691|false|4|Garth Nix
+5|Ancillary Mercy|2|330|false|1|Sherwood Smith
+5|Ancillary Mercy|2|330|false|2|Anne Leckie
+5|Ancillary Mercy|2|330|false|3|Charlie Jane Anders
+5|Ancillary Mercy|2|330|false|4|Garth Nix
+6|All the Birds in the Sky|3|320|true|1|Sherwood Smith
+6|All the Birds in the Sky|3|320|true|2|Anne Leckie
+6|All the Birds in the Sky|3|320|true|3|Charlie Jane Anders
+6|All the Birds in the Sky|3|320|true|4|Garth Nix
+7|Sabriel|4|491|true|1|Sherwood Smith
+7|Sabriel|4|491|true|2|Anne Leckie
+7|Sabriel|4|491|true|3|Charlie Jane Anders
+7|Sabriel|4|491|true|4|Garth Nix
