@@ -26,6 +26,7 @@ class Gratitude_Journal
 	year 		:	Int
 	mood 		: 	String
 	gratitude 	: 	String
+	db 			: 	database?	
 =end
 
 	attr_accessor :month, :day, :year, :mood, :gratitude
@@ -59,7 +60,7 @@ class Gratitude_Journal
 
 
 	def create_entry
-		db.execute("INSERT INTO gratitude (month, day, year, mood, gratitude) VALUES (?, ?, ?, ?, ?)", [@month, @day, @year, @mood, @gratitude])
+		@db.execute("INSERT INTO gratitude (month, day, year, mood, gratitude) VALUES (?, ?, ?, ?, ?)", [@month, @day, @year, @mood, @gratitude])
 	end
 
 	def check_entry
@@ -71,12 +72,23 @@ class Gratitude_Journal
 		ENTRY
 	end
 
+	def print_entries
+		entries = @db.execute("SELECT * FROM gratitude")
+		entries.each do |entry|
+			puts <<-ENTRY
+	#{entry['month']} #{entry['day']}, #{entry['year']}
+	Mood: #{entry['mood']}
+	You're grateful for: #{entry['gratitude']}
+			ENTRY
+		end
+	end
+
 private
 	def create_database
 		# Creating the database:
 
-		db = SQLite3::Database.new("gratitude.db")
-		db.results_as_hash = true
+		@db = SQLite3::Database.new("gratitude.db")
+		@db.results_as_hash = true
 
 		create_table = <<-SQL
 		  CREATE TABLE IF NOT EXISTS gratitude(
@@ -89,7 +101,7 @@ private
 		  )
 		SQL
 
-		db.execute(create_table)
+		@db.execute(create_table)
 	end
 end
 
@@ -97,14 +109,29 @@ end
 
 journal = Gratitude_Journal.new
 puts "Welcome to your gratitude journal."
-loop do
+entry_complete = false
+until entry_complete 
 	puts "Type +read to read your old entries or +write to write a new one."
 	input = gets.chomp
 	if input == "+write"
 		journal.set_date
-		break
+		puts "Please enter your mood: "
+		journal.mood = gets.chomp 
+		puts "What are you grateful for?"
+		journal.gratitude = gets.chomp
+		puts journal.check_entry
+		puts ""
+		puts "Do you want to change it?"
+		change_input = gets.chomp
+		unless (change_input != "n") && ("yes yeah definitely affirmative".include? change_input)
+			journal.create_entry
+			entry_complete = true
+		end
 	elsif input == "+read"
-		break
+		journal.print_entries
+		entry_complete = true
+	elsif input == "+quit"
+		entry_complete = true
 	else
 		puts "please enter a valid input"
 	end
