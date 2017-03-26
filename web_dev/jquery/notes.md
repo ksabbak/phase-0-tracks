@@ -7,3 +7,8 @@ The above is subject to change once I know more about jquery and find more resou
 Given the 2 hour time limit, testing will not be scheduled but will likely happen if I come up anything I am not 100% clear on and 10 to 15 minutes will be devoted to playing with any subtopic that I find super interesting. 
 
 Breaks will not be scheduled due to the time limit, but are not totally discouraged depending on moral.
+
+
+_______
+
+I learned "Learning about jquery" is a terrible goal. I went off on so many tangents, mostly about javascript. Never even got to the docs, spent most of my time reading the book.
