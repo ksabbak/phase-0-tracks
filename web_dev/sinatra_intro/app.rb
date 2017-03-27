@@ -65,6 +65,13 @@ get '/great_job' do
 end
 
 
+get '/add/:x/:y' do
+  x = params[:x].to_i
+  y = params[:y].to_i
+  "Sum: #{x + y}"
+
+end
+
 
 
 
