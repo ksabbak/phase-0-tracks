@@ -50,3 +50,21 @@ get '/contact' do
   "123 Panic St. <br>
   Chicago, IL 60618"
 end
+
+# A /great_job route that can take a person's name as a query parameter 
+# (not a route parameter) and say "Good job, [person's name]!". 
+# If the query parameter is not present, the route simply says "Good job!"
+
+get '/great_job' do
+  name = params[:name]
+  if name
+    "Wow, good job, #{name.capitalize}!"
+  else
+    "Good job!"
+  end
+end
+
+
+
+
+
