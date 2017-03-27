@@ -10,11 +10,18 @@ db.results_as_hash = true
 # show students on the home page
 get '/' do
   @students = db.execute("SELECT * FROM students")
+  @campuses = db.execute("SELECT DISTINCT campus FROM students")
   erb :home
 end
 
 get '/students/new' do
   erb :new_student
+end
+
+get '/creative_block/:campus' do
+	campus = params[:campus]
+  @local_students = db.execute("SELECT * FROM students WHERE campus = '#{params[:campus]}'")
+  erb :creative_block
 end
 
 # create new students via
